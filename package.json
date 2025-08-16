@@ -1,12 +1,12 @@
 {
   "name": "@munirmardinli-dev/release",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "sideEffects": false,
   "type": "module",
   "description": "Automated Release Workflow Toolkit - Semantic Release, Changelog Generation & GitHub Integration for Node.js/TypeScript Projects. CI/CD-ready package versioning and deployment automation.",
   "bin": {
-    "munir-release": "./lib/index.js"
+    "munir-release": "./lib/src/index.js"
   },
   "engines": {
     "node": ">=18"
