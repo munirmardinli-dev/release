@@ -5,11 +5,7 @@ import type { Release } from "./types.js";
 
 export class ReleaseAutomation {
   private defaultConfig: Release.Config = {
-    branches: [
-      "main",
-      "develop",
-      { name: "feature/*" }
-    ],
+    branches: ["main", "develop", { name: "feature/*" }],
     plugins: [
       [
         "@semantic-release/commit-analyzer",
@@ -21,12 +17,12 @@ export class ReleaseAutomation {
             { type: "perf", release: "patch" },
             { type: "refactor", release: "patch" },
             { type: "fix", release: "patch" },
-            { type: "test", release: "patch" }
+            { type: "test", release: "patch" },
           ],
           parserOpts: {
-            noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES"]
-          }
-        }
+            noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES"],
+          },
+        },
       ],
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
@@ -35,10 +31,11 @@ export class ReleaseAutomation {
         "@semantic-release/git",
         {
           assets: ["CHANGELOG.md", "package.json"],
-          message: "chore(release): v${nextRelease.version} [skip ci]\n\n[skip ci]"
-        }
-      ]
-    ]
+          message:
+            "chore(release): v${nextRelease.version} [skip ci]\n\n[skip ci]",
+        },
+      ],
+    ],
   };
 
   private config: Release.Config;

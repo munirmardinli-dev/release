@@ -1,10 +1,21 @@
 {
   "name": "@munirmardinli-dev/release",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "sideEffects": false,
   "type": "module",
   "description": "Automated Release Workflow Toolkit - Semantic Release, Changelog Generation & GitHub Integration for Node.js/TypeScript Projects. CI/CD-ready package versioning and deployment automation.",
+  "bin": {
+    "munir-release": "./lib/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "readmeFilename": "README.md",
   "keywords": [
     "semantic-release",
     "automated-releases",

@@ -14,11 +14,11 @@ This package is ideal for teams and individual developers who want to ensure a c
 
 ## Key Features
 
-* **Automated Versioning**: Automatically increments major, minor, or patch versions based on your Git commit messages.
-* **Changelog Generation**: Creates and updates a `CHANGELOG.md` with the details of each new version.
-* **CI/CD Integration**: Pre-configured support for GitHub Actions and other CI environments.
-* **Customizable Configuration**: Allows easy modification of branches, plugins, and release rules.
-* **Intuitive API**: Provides a simple programming interface for initializing and managing the release process in your scripts.
+- **Automated Versioning**: Automatically increments major, minor, or patch versions based on your Git commit messages.
+- **Changelog Generation**: Creates and updates a `CHANGELOG.md` with the details of each new version.
+- **CI/CD Integration**: Pre-configured support for GitHub Actions and other CI environments.
+- **Customizable Configuration**: Allows easy modification of branches, plugins, and release rules.
+- **Intuitive API**: Provides a simple programming interface for initializing and managing the release process in your scripts.
 
 ---
 
@@ -47,20 +47,23 @@ import { ReleaseAutomation } from "@munirmardinli-dev/release";
 
 async function runRelease() {
   const releaseManager = new ReleaseAutomation();
-  
+
   // Load the default configuration or an existing .releaserc file
   await releaseManager.initialize();
 
   // Example: Add an additional release branch
   releaseManager.addBranch({ name: "next", prerelease: true });
-  
+
   // Example: Change the commit message of the Git plugin
   releaseManager.updatePluginConfig("@semantic-release/git", {
-    message: "chore(release): ${nextRelease.version} [skip ci]"
+    message: "chore(release): ${nextRelease.version} [skip ci]",
   });
 
   // Example: Output configuration as JSON
-  console.log("Current configuration:", JSON.stringify(releaseManager.getConfig(), null, 2));
+  console.log(
+    "Current configuration:",
+    JSON.stringify(releaseManager.getConfig(), null, 2),
+  );
 
   // Write the configuration to the .releaserc file
   await releaseManager.writeConfigToFile();
@@ -115,7 +118,7 @@ jobs:
 
 By default, the tool is pre-configured with the following branches and plugins:
 
-- Branches: main, develop, feature/*
+- Branches: main, develop, feature/\*
 - Plugins:
   - `@semantic-release/commit-analyzer` (with conventionalcommits preset and release rules for common commit types like fix, feat, chore, docs, perf, refactor, and test).
   - `@semantic-release/release-notes-generator`
