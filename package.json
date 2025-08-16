@@ -1,6 +1,6 @@
 {
   "name": "@munirmardinli-dev/release",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "sideEffects": false,
   "type": "module",
@@ -35,8 +35,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.js"
+      "import": "./lib/src/index.js",
+      "require": "./lib/src/index.js"
     },
     "./package.json": "./package.json",
     "./.releaserc": {
@@ -44,8 +44,8 @@
       "require": "./.releaserc"
     },
     "./types": {
-      "import": "./lib/types.js",
-      "require": "./lib/types.js"
+      "import": "./lib/src/types.js",
+      "require": "./lib/src/types.js"
     }
   },
   "config": {
@@ -53,8 +53,8 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
   "license": "MIT",
   "homepage": "https://munirmardinli-dev.github.io/release",
   "bugs": {
