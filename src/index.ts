@@ -41,8 +41,11 @@ export class ReleaseAutomation {
   private config: Release.Config;
   private options: Release.Options;
 
-public setOptions(options: Partial<Release.Options>): void {
+  public setOptions(options: Partial<Release.Options>): void {
     this.options = { ...this.options, ...options };
+    if (options.config) {
+      this.config = { ...this.config, ...options.config };
+    }
   }
   constructor(options: Release.Options = {}) {
     this.options = options;
