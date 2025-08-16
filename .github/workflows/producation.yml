@@ -59,7 +59,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
       - name: Run npm audit
         run: npm audit --audit-level=moderate
-
   build-prod:
     needs:
       - quality-assurance
@@ -77,25 +76,9 @@ jobs:
         run: |
           npx tsc
 
-  check-audit-prod:
-    needs: build-prod
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/checkout@v5
-      - uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            .npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-      - name: Run npm audit
-        run: npm audit --audit-level=moderate
-        working-directory: ${{ github.workspace }}
-
   publish-npm:
     needs:
-      - check-audit-prod
+      - build-prod
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
